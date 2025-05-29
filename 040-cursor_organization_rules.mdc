@@ -1,0 +1,430 @@
+---
+description: File organization and project structure guidance for the Project. Load when: creating new modules or files, restructuring directories, organizing assets/data/documentation, establishing naming conventions, planning file placement decisions, migrating code between directories, setting up new subdirectories, or handling import path conflicts. Essential for maintaining standardized project architecture and consistent file organization patterns.
+globs: 
+alwaysApply: false
+---
+# 🗂️ 040-cursor_organization_rules - File Organization and Project Structure Guidance
+
+## CUSTOMIZATION GUIDE
+**Purpose**: Template this file for your project by replacing placeholders with project-specific values
+**Structure Templates**: Examples provided for different project types and languages
+**Module Organization**: Adapt directory structure to your project's architecture
+**Placeholders to Replace**: [PROJECT_NAME], [MODULE_NAMES], [TECH_STACK], [ASSET_TYPES]
+
+## CRITICAL AGENT RULES - READ FIRST
+
+⚠️ **MANDATORY FILE ORGANIZATION RULES** ⚠️
+
+1. **NO AUTOMATIC FILE MOVES**: Agents MUST NOT move, rename, or reorganize files without explicit user approval
+2. **STRUCTURE PROTECTION**: Never modify established directory structure without user verification
+3. **IMPORT PRESERVATION**: Do not change file locations that would break import statements or references
+4. **NAMING CONVENTION SAFETY**: Protect established naming patterns and file organization
+5. **USER VERIFICATION REQUIRED**: All file organization and structural changes require user approval
+
+### Safe Operations (No Approval Required)
+- Reading file placement guidelines for guidance
+- Providing organization advice for new files
+- Suggesting proper placement for new modules or documentation
+- Recommending naming conventions for new files
+- Identifying misplaced files and suggesting corrections
+
+### Protected Operations (Require User Approval)
+- Moving existing files to different directories
+- Renaming files or directories
+- Changing the established directory structure (src/, docs/, assets/, data/, etc.)
+- Reorganizing module subdirectory structures
+- Modifying import statements to reflect file moves
+- Creating new top-level directories
+- Deleting directories or significant file reorganization
+
+## Purpose
+
+Organizational structure and standards for [PROJECT_NAME] to ensure consistent, predictable file placement and maintainable project architecture.
+
+### Auto-Trigger Keywords
+This rule is automatically loaded when agents detect: `file, directory, structure, organization, module, folder, path, import, asset, data, documentation, naming, placement, migration, subdirectory`
+
+### Cross-Rule Integration Points
+- **@010-cursor_general_rules**: Provides file organization standards that support all other rule implementations
+- **@011-cursor_project_rules**: Technical module structure must align with established project architecture
+- **@013-cursor_riper_rules**: Planning phase includes file organization considerations per established patterns
+- **@030-cursor_task_rules**: Task implementation must follow organized file placement guidelines
+
+### Organization Integration Actions
+- **Before File Creation**: Apply standardized directory structure and naming conventions
+- **During Implementation**: Ensure proper file placement within established module hierarchy
+- **Asset Management**: Organize data, images, templates, and documentation according to established patterns
+- **Import Path Management**: Maintain consistent import patterns and resolve path conflicts systematically
+- **Module Coordination**: Coordinate file organization with technical architecture and development workflows
+
+## Core Principles
+
+### Separation of Concerns
+- **Source Code**: `src/` - All application source code
+- **Static Assets**: `assets/` - Images, templates, reference data
+- **Runtime Data**: `data/` - User data, runtime files (mostly gitignored)
+- **Documentation**: `docs/` - All project documentation
+- **Scripts**: `scripts/` - Automation, deployment, utility scripts
+- **Tests**: `tests/` - All testing code and fixtures
+
+### Standards
+- **Naming**: Use snake_case for directories and files (adjust for language conventions)
+- **Hierarchy**: Max 3-4 directory levels deep
+- **Compatibility**: No spaces in names, UTF-8 encoding, reasonable path lengths
+
+## TECHNOLOGY TEMPLATES
+
+### Web Application Structure
+```
+[PROJECT_NAME]/
+├── public/                    # Static public assets
+│   ├── images/
+│   ├── favicon.ico
+│   └── index.html
+├── src/                       # Application source code
+│   ├── components/            # Reusable UI components
+│   ├── pages/                 # Page components
+│   ├── hooks/                 # Custom React hooks
+│   ├── utils/                 # Utility functions
+│   ├── api/                   # API integration
+│   └── styles/                # Styling files
+├── docs/                      # Project documentation
+├── tests/                     # Test files
+└── package.json              # Dependencies and scripts
+```
+
+### Backend API Structure
+```
+[PROJECT_NAME]/
+├── src/                       # Application source code
+│   ├── controllers/           # Request handlers
+│   ├── models/                # Data models
+│   ├── services/              # Business logic
+│   ├── middleware/            # Express middleware
+│   ├── routes/                # API routes
+│   ├── utils/                 # Utility functions
+│   └── config/                # Configuration
+├── tests/                     # Test files
+├── docs/                      # API documentation
+└── package.json              # Dependencies and scripts
+```
+
+### Python Application Structure
+```
+[PROJECT_NAME]/
+├── src/                       # Application source code
+│   ├── [MODULE_NAMES]/        # Main application modules
+│   ├── utils/                 # Shared utilities
+│   └── config/                # Configuration management
+├── tests/                     # Test files
+├── docs/                      # Documentation
+├── assets/                    # Static assets
+├── data/                      # Runtime data
+└── requirements.txt           # Python dependencies
+```
+
+### Mobile Application Structure
+```
+[PROJECT_NAME]/
+├── src/                       # Application source code
+│   ├── screens/               # Screen components
+│   ├── components/            # Reusable components
+│   ├── navigation/            # Navigation setup
+│   ├── services/              # API and services
+│   ├── utils/                 # Utility functions
+│   └── assets/                # Images, fonts, etc.
+├── tests/                     # Test files
+├── docs/                      # Documentation
+└── package.json              # Dependencies and scripts
+```
+
+## Standardized Directory Structure
+
+```
+[PROJECT_NAME]/
+├── .cursor/                    # Cursor IDE configuration
+│   ├── rules/                  # Project rules and guidelines
+│   └── settings.json          # Cursor settings
+├── assets/                    # Static assets and reference data
+│   ├── data/                  # Reference data ([ASSET_TYPES])
+│   ├── images/                # Project images and media
+│   ├── templates/             # File templates and examples
+│   └── [CUSTOM_ASSET_DIRS]/   # Project-specific asset types
+├── business_strategy/         # Business documentation and planning (if applicable)
+│   ├── confidential/          # Confidential business documents
+│   └── public/                # Public business information
+├── data/                      # Runtime and user data (mostly gitignored)
+│   ├── logs/                  # Application logs
+│   ├── cache/                 # Temporary cache files
+│   ├── uploads/               # User uploaded content
+│   └── [RUNTIME_DATA_DIRS]/   # Project-specific runtime data
+├── docs/                      # All project documentation
+│   ├── api/                   # API documentation
+│   ├── deployment/            # Deployment guides and procedures
+│   ├── development/           # Development guides and workflows
+│   └── user/                  # User documentation and guides
+├── scripts/                   # Automation and utility scripts
+│   ├── deployment/            # Deployment automation scripts
+│   ├── quality/               # Code quality and testing scripts
+│   └── maintenance/           # Maintenance and admin scripts
+├── src/                       # All application source code
+│   ├── [MODULE_NAMES]/        # Main application modules
+│   │   ├── src/               # Module source code
+│   │   ├── tests/             # Module tests
+│   │   └── docs/              # Module documentation
+│   └── utils/                 # Shared utilities and common code
+│       ├── src/               # Utility source code
+│       ├── tests/             # Utility tests
+│       └── docs/              # Utility documentation
+├── tests/                     # Project-wide testing
+│   ├── integration/           # Integration tests
+│   ├── unit/                  # Unit tests
+│   └── fixtures/              # Test data and fixtures
+├── .env*                      # Environment configuration files
+├── [MAIN_FILE]                # Application entry point
+├── [CONFIG_FILE]              # Project configuration (package.json, requirements.txt, etc.)
+└── README.md                  # Project overview and setup
+```
+
+## File Placement Guidelines
+
+### Assets Directory (`assets/`)
+**Purpose**: Static assets that don't change during runtime
+
+**Subdirectories**:
+- `data/` - Reference data files (CSVs, JSON datasets, configuration files)
+- `images/` - Project images, logos, icons, graphics
+- `templates/` - File templates and configuration examples
+- `[CUSTOM_DIRS]/` - Project-specific asset categories
+
+**Examples**: 
+- `assets/data/reference_data.csv`
+- `assets/images/logo.png`
+- `assets/templates/config_template.json`
+
+### Data Directory (`data/`)
+**Purpose**: Runtime data, user-generated content, temporary files (mostly gitignored)
+
+**Technology-Specific Examples**:
+
+**Web Applications:**
+- `logs/` - Application and access logs
+- `uploads/` - User-uploaded files
+- `cache/` - Temporary cache files
+- `sessions/` - Session storage
+
+**Desktop Applications:**
+- `user_data/` - User-specific application data
+- `cache/` - Application cache
+- `logs/` - Application logs
+- `backups/` - Data backups
+
+**Data Processing Applications:**
+- `raw/` - Raw input data
+- `processed/` - Processed data outputs
+- `temp/` - Temporary processing files
+- `exports/` - Generated export files
+
+### Documentation Directory (`docs/`)
+**Purpose**: All project documentation organized by audience and purpose
+
+**Subdirectories**:
+- `api/` - API documentation and specifications
+- `deployment/` - Deployment guides and procedures
+- `development/` - Developer guides and workflows
+- `user/` - End-user documentation and tutorials
+
+### Scripts Directory (`scripts/`)
+**Purpose**: Automation scripts, utilities, and administrative tools
+
+**Subdirectories**:
+- `deployment/` - Deployment automation and CI/CD scripts
+- `quality/` - Code quality, linting, and testing scripts
+- `maintenance/` - Database cleanup, backup, monitoring scripts
+
+**Naming Convention**: Use descriptive names with action verbs
+- `deploy_production.py/sh`
+- `run_quality_checks.py/sh`
+- `backup_data.py/sh`
+
+### Tests Directory (`tests/`)
+**Purpose**: Project-wide tests that don't belong to specific modules
+
+**Subdirectories**:
+- `integration/` - Cross-module integration tests
+- `unit/` - Standalone unit tests
+- `fixtures/` - Test data, mock files, test configurations
+
+## Module Organization Standards
+
+### Source Module Structure
+Each module in `src/` follows this standard:
+
+```
+src/[MODULE_NAME]/
+├── src/                       # Module implementation
+│   ├── __init__.py           # Module initialization (Python)
+│   ├── [MAIN_MODULE_FILE]    # Primary module logic
+│   ├── handlers.py           # Event/request handlers
+│   ├── utils.py              # Module-specific utilities
+│   └── models.py             # Data models and classes
+├── tests/                     # Module-specific tests
+│   ├── __init__.py          # Test initialization
+│   ├── test_[MAIN_MODULE].py
+│   └── test_handlers.py
+└── docs/                      # Module documentation
+    ├── README.md              # Module overview
+    ├── api.md                 # API documentation
+    └── examples.md            # Usage examples
+```
+
+### Language-Specific Adaptations
+
+**JavaScript/TypeScript:**
+```
+src/[MODULE_NAME]/
+├── index.ts                   # Module entry point
+├── components/                # React components
+├── hooks/                     # Custom hooks
+├── types/                     # TypeScript type definitions
+├── utils/                     # Utility functions
+└── __tests__/                 # Jest tests
+```
+
+**Go:**
+```
+src/[MODULE_NAME]/
+├── main.go                    # Module entry point
+├── handlers.go                # HTTP handlers
+├── models.go                  # Data structures
+├── utils.go                   # Utility functions
+└── main_test.go               # Go tests
+```
+
+**Rust:**
+```
+src/[MODULE_NAME]/
+├── mod.rs                     # Module declaration
+├── lib.rs                     # Library entry point
+├── handlers.rs                # Request handlers
+├── models.rs                  # Data structures
+├── utils.rs                   # Utility functions
+└── tests.rs                   # Rust tests
+```
+
+### Shared Utilities (`src/utils/`)
+Common code used across multiple modules:
+
+```
+src/utils/src/
+├── __init__.py               # Utility package initialization
+├── config.py                 # Configuration management
+├── logging.py                # Logging utilities
+├── auth.py                   # Authentication utilities
+├── database.py               # Database utilities
+├── api_client.py             # API client utilities
+└── helpers.py                # General helper functions
+```
+
+## Naming Conventions
+
+### File and Directory Naming
+- **General Rule**: Use snake_case for most file and directory names
+- **Language Adaptations**: Follow language-specific conventions (camelCase for JavaScript, PascalCase for components)
+- **Avoid**: Spaces, special characters, very long names
+- **Descriptive**: Names should clearly indicate purpose
+
+### Module Naming
+- **Descriptive**: `user_management`, `payment_processing`, `data_analytics`
+- **Consistent**: Use consistent naming patterns across similar modules
+- **Hierarchical**: Reflect module relationships in names
+
+### Asset Naming
+- **Images**: `logo_primary.png`, `icon_user_24x24.png`, `banner_homepage.jpg`
+- **Data Files**: `user_data_schema.json`, `config_template.yaml`, `reference_data.csv`
+- **Templates**: `email_template.html`, `config_example.json`, `dockerfile_template`
+
+## Environment-Specific Organization
+
+### Development Environment
+```
+[PROJECT_NAME]/
+├── dev_tools/                 # Development-only tools
+├── .env.development          # Development environment config
+└── docker-compose.dev.yml    # Development Docker setup
+```
+
+### Production Environment
+```
+[PROJECT_NAME]/
+├── deploy/                    # Production deployment files
+├── .env.production           # Production environment config
+└── docker-compose.prod.yml   # Production Docker setup
+```
+
+## Integration with Cursor Rules
+
+**Centralized Integration Framework**: See @010-cursor_general_rules → "🔗 Rule Integration Framework" section for comprehensive integration coordination between all cursor rules.
+
+## EXAMPLE CONFIGURATIONS
+
+### React/TypeScript Web Application
+```
+my-web-app/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── hooks/
+│   ├── utils/
+│   └── types/
+├── tests/
+├── docs/
+└── package.json
+```
+
+### Python FastAPI Backend
+```
+my-api/
+├── src/
+│   ├── api/
+│   ├── core/
+│   ├── db/
+│   ├── models/
+│   └── utils/
+├── tests/
+├── docs/
+├── scripts/
+└── requirements.txt
+```
+
+### Mobile React Native App
+```
+my-mobile-app/
+├── src/
+│   ├── screens/
+│   ├── components/
+│   ├── navigation/
+│   ├── services/
+│   └── assets/
+├── __tests__/
+├── docs/
+└── package.json
+```
+
+### Microservices Project
+```
+my-microservices/
+├── services/
+│   ├── user-service/
+│   ├── payment-service/
+│   └── notification-service/
+├── shared/
+│   ├── types/
+│   └── utils/
+├── infrastructure/
+├── docs/
+└── docker-compose.yml
+```
+
+

@@ -1,0 +1,290 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 🧠 031-cursor_memory_rules - AI Memory Rule
+
+## CUSTOMIZATION GUIDE 🔧
+
+**Essential Placeholders to Replace:**
+- `[PROJECT_NAME]` → Your project name
+- `[CORE_DECISIONS]` → Your fundamental project decisions (architecture, tech stack, etc.)
+- `[MEMORY_CATEGORIES]` → Categories specific to your project (features, modules, workflows)
+
+**Memory Framework:**
+This rule provides universal memory management that works with any project type. The entropy minimization system and memory categorization adapt to any development workflow while preserving crucial project knowledge.
+
+**Memory Categories by Project Type:**
+- **Web Apps**: User requirements, API design, UI patterns, deployment strategies
+- **APIs**: Endpoint design, authentication patterns, performance benchmarks, integration approaches  
+- **Mobile Apps**: UI patterns, platform requirements, user flows, store submission guidelines
+- **Desktop Software**: Architecture decisions, platform compatibility, distribution methods, user preferences
+
+## CRITICAL AGENT RULES - READ FIRST
+
+⚠️ **MANDATORY MEMORY MANAGEMENT RULES** ⚠️
+
+1. **NO FORCED ARCHIVAL**: Agents MUST NOT force archival of Core Memory (strategic vision, technical standards) without explicit user approval
+2. **CONSOLIDATION APPROVAL**: Agent-driven consolidation >50 lines moved requires user verification before execution
+3. **CROSS-REFERENCE SAFETY**: Never break existing links during reorganization without updating all affected references
+4. **ARCHIVE TRANSPARENCY**: Always inform user of archival actions and provide clear rationale for memory organization changes
+5. **USER VERIFICATION REQUIRED**: All major memory restructuring (>100 lines affected) requires user approval before execution
+
+### Safe Memory Operations (No Approval Required)
+- Adding new information to existing sections (pattern updates, timestamps, progress tracking)
+- Small consolidation (<50 lines) of duplicate "Latest" entries into "Current" status
+- Cross-reference validation and link maintenance during updates
+- Size monitoring and consolidation opportunity identification
+- Memory category organization (Core/Active/Historical progression)
+
+### Protected Memory Operations (Require User Approval)
+- Moving Core Memory sections to archive (strategic vision, technical standards, user preferences)
+- Major consolidation operations (>50 lines moved in single action)
+- Creating new archive files or reorganizing archive structure
+- Breaking established cross-references without comprehensive update plan
+- Memory restructuring affecting >100 lines across multiple sections
+
+## 🎯 Purpose
+**Maintain consistency** → **Adapt to project needs** → **Store user preferences** → **Prevent repeated questions** → **Manage context size intelligently**
+
+### Auto-Trigger Keywords
+This rule is automatically loaded when agents detect: `remember, learned, prefer, pattern, decision, strategic, approach, convention, memory, consolidate, archive, historical, knowledge`
+
+### Cross-Rule Integration Points
+- **@010-cursor_general_rules**: Operates within centralized Rule Integration Framework for coordinated memory management
+- **@030-cursor_task_rules**: Memory integration records successful implementation patterns and workflow insights from task management
+- **@032-cursor_quality_rules**: Memory captures recurring quality issues and their solutions from QA processes
+- **@022-cursor_git_rules**: Memory documents successful branch strategies and commit patterns from version control
+- **@013-cursor_riper_rules**: Memory recording integrated across all RIPER phases for pattern documentation
+- **@012-learned_memories**: Primary storage location for all learned project-specific knowledge and preferences
+
+### Memory Integration Actions
+- **During Implementation**: Record successful patterns and architectural decisions in @012-learned_memories for future reference
+- **Progress Tracking**: Update memory with implementation progress and lessons learned
+- **Entropy Management**: Consolidate duplicate information and archive outdated content automatically
+- **Cross-Reference Validation**: Ensure memory updates maintain consistency with other rule references
+- **Strategic Alignment**: Validate memory updates align with project objectives and established workflows
+
+## Storage Architecture
+
+### Primary Memory Storage
+All learned project-specific knowledge and preferences are stored in @012-learned_memories file located in `.cursor/rules`.
+
+### Memory Organization Principles (Entropy Minimization)
+1. **Hierarchical Structure**: Organize by permanence and relevance
+2. **Temporal Separation**: Distinguish current state from historical context
+3. **Consolidation Over Accumulation**: Update existing entries rather than adding duplicates
+4. **Context Efficiency**: Prioritize high-impact, frequently-referenced information
+
+## 📂 Memory Categories
+
+### 🔴 Core Memory (Permanent - High Priority)
+**Location**: Top sections of @012-learned_memories
+**Content**: Strategic vision, technical stack, environment requirements, code conventions, user preferences
+**Action**: Update in place, never archive, consolidate over duplicate
+
+### 🟡 Active Memory (Current - Medium Priority)  
+**Location**: Middle sections of @012-learned_memories
+**Content**: Implementation progress, recent completions, current priorities, active decisions
+**Action**: Monthly consolidation, move outdated to Historical Memory
+
+### 🔵 Historical Memory (Archive - Low Priority)
+**Location**: Bottom sections or archive file
+**Content**: Completed phases, resolved issues, superseded approaches, workflow improvements
+**Action**: Compress to summaries, archive when >800 lines
+
+## 🎯 PROJECT TYPE MEMORY EXAMPLES
+
+### Web Application Memory
+```yaml
+Core: User requirements, Authentication patterns, API design principles, Deployment strategy
+Active: Current feature development, Recent bug fixes, Performance optimizations
+Historical: Completed features, Resolved architectural decisions, Deprecated approaches
+```
+
+### API Service Memory
+```yaml
+Core: Endpoint design standards, Authentication methods, Rate limiting approach, Error handling
+Active: New endpoint implementations, Current integrations, Testing strategies
+Historical: Legacy endpoint migrations, Resolved performance issues, Deprecated versions
+```
+
+### Mobile Application Memory
+```yaml
+Core: Platform requirements, UI patterns, App store guidelines, User flow principles
+Active: Current feature development, Platform-specific implementations, Testing approaches
+Historical: Completed releases, Resolved platform issues, Deprecated features
+```
+
+### Desktop Software Memory
+```yaml
+Core: Architecture decisions, Platform compatibility, Distribution methods, User preferences
+Active: Current feature development, Installation procedures, Configuration management
+Historical: Version migrations, Resolved compatibility issues, Legacy feature support
+```
+
+## Entropy Minimization Protocols
+
+### Automatic Memory Consolidation
+When @012-learned_memories approaches 800 lines:
+
+1. **Duplicate Detection**: Identify and merge duplicate or overlapping sections
+2. **Temporal Consolidation**: Combine multiple "Latest" entries into single current state
+3. **Historical Compression**: Summarize completed phases into concise lessons learned
+4. **Relevance Filtering**: Archive information that hasn't been referenced in 3+ months
+
+### Memory Update Protocols
+
+#### Adding New Information
+1. **Check for Existing Entries**: Search for related information before adding
+2. **Update vs. Add Decision**: Prefer updating existing entries over creating new ones
+3. **Consolidation Opportunity**: When adding, check if multiple entries can be merged
+4. **Temporal Marking**: Mark entries with implementation status (Current/Historical/Archived)
+
+#### Updating Existing Information
+1. **Preserve Core Context**: Maintain essential historical context while updating current state
+2. **Version Management**: For major changes, briefly note what changed and why
+3. **Cross-Reference Check**: Ensure updates don't contradict information in other sections
+4. **Consolidation Trigger**: Use updates as opportunities to consolidate related information
+
+## Integration with Cursor Rules
+
+**Centralized Integration Framework**: See @010-cursor_general_rules → Rule Integration Reference for comprehensive integration coordination between all cursor rules.
+
+**Memory-Specific Integration Points:**
+- **Task Completion Memory**: Record successful implementation patterns and workflow insights from task management
+- **Quality Pattern Memory**: Remember recurring quality issues and their solutions from QA processes
+- **Git Workflow Memory**: Document successful branch strategies and commit patterns from version control
+- **Strategic Alignment Memory**: Record approaches that maintain strategic focus across all development activities
+
+## Memory Usage Guidelines
+
+### Before Proposing Solutions
+1. **Core Memory Check**: Verify alignment with fundamental project decisions
+2. **Active Memory Review**: Check current implementation status and recent lessons
+3. **Pattern Recognition**: Apply learned patterns from similar previous situations
+4. **Consistency Validation**: Ensure suggestions align with established preferences
+
+### During Implementation
+1. **Real-Time Learning**: Identify new patterns or preferences as they emerge
+2. **Exception Tracking**: Note when established patterns don't apply and why
+3. **Efficiency Opportunities**: Recognize workflow improvements during implementation
+4. **Cross-Module Insights**: Capture lessons that apply across multiple project areas
+
+### After Implementation
+1. **Success Pattern Documentation**: Record what worked well for future reference
+2. **Challenge Resolution Memory**: Document how obstacles were overcome
+3. **Process Refinement**: Note improvements to development workflow or decision-making
+4. **Strategic Validation**: Confirm implementation aligns with strategic objectives
+
+## Automatic Memory Maintenance (Implemented System)
+
+### Timestamp Tracking Standards
+**Memory Entry Timestamps:**
+- **Format**: `[Updated: YYYY-MM-DD]` or `[Added: YYYY-MM-DD]` at end of major sections
+- **Purpose**: Chronological understanding and progress tracking, not automatic triggers
+- **Application**: Add to Strategic Vision updates, major technical changes, resolved issues
+- **Date Accuracy**: **CRITICAL** - Use system command to get current date appropriate for your platform
+- **Example**: `* **Primary Focus**: [PROJECT_NAME] development [Updated: YYYY-MM-DD]`
+
+**Platform-Specific Date Commands:**
+```bash
+# Windows PowerShell
+powershell -Command "Get-Date -Format 'yyyy-MM-dd'"
+
+# macOS/Linux
+date +%Y-%m-%d
+
+# Git (cross-platform)
+git log -1 --format=%cd --date=short
+```
+
+**Temporal Marking Hierarchy:**
+- **Latest**: Recently added information requiring consolidation review
+- **Current**: Established current state (Latest → Current after validation)  
+- **Historical**: Superseded but relevant context (Current → Historical when replaced)
+- **Archived**: Moved to archive file with cross-reference
+
+### Agent Scanning Protocols and Automatic Triggers
+
+**Proactive Scanning (When Memory Keywords Detected):**
+- **Size Check**: Quick scan of file length for threshold management
+- **Latest Marker Review**: Identify multiple "Latest" sections for consolidation
+- **Duplicate Detection**: Scan section headers for >70% similarity
+- **Progress Assessment**: Check if completed implementations should move Historical → Archived
+
+**Reactive Scanning (During Memory Work):**
+- **Before Adding Information**: Full consolidation check and existing content search
+- **During Updates**: Cross-reference validation and consolidation opportunities
+- **After Changes**: Reference validation and entropy verification
+- **When Size Threshold Hit**: Immediate archival process activation
+
+**Size Threshold Triggers:**
+- When @012-learned_memories exceeds 200 lines: Immediate consolidation review
+- When @012-learned_memories exceeds 300 lines: Automatic archival process
+- When adding new information: Check if consolidation opportunities exist
+
+**Content Pattern Triggers:**
+- Multiple sections with "Latest" or "Current" markers: Consolidate into single current state
+- Duplicate section headers detected: Merge overlapping content
+- Historical information in Core/Active Memory sections: Move to Historical Memory
+- Outdated technical information: Archive and update with current state
+
+**Progress-Based Triggers:**
+- Implementation details from completed phases: Compress into lessons learned
+- Superseded technical decisions: Archive with migration context
+- Strategic directions replaced by new approaches: Archive previous with context
+- Resolved issues documented in Historical Memory: Archive when solutions established
+
+### Archive System Implementation
+
+**Archive File Location:** @091-learned_memories_archive
+
+**Archive Structure:**
+```
+# [PROJECT_NAME] Learned Memories Archive
+
+## Archive Organization
+**Purpose**: Historical project knowledge and superseded decisions
+**Cross-Reference**: Current memories maintained in @012-learned_memories
+**Last Updated**: [Date]
+
+## Archived Strategic Decisions
+[Superseded strategic directions with context]
+
+## Archived Technical Implementations  
+[Detailed implementation histories from completed phases]
+
+## Archived Development Processes
+[Historical workflow improvements and their outcomes]
+
+## Archived Issue Resolutions
+[Resolved technical debt and implementation challenges]
+```
+
+## 🔧 CUSTOMIZATION EXAMPLES
+
+### Example 1: React Web Application
+```yaml
+PROJECT_NAME: "EcommerceApp"
+CORE_DECISIONS: "React architecture, State management with Redux, API integration patterns"
+MEMORY_CATEGORIES: "UI components, User flows, Payment integration, Performance optimizations"
+```
+
+### Example 2: Python API Service
+```yaml
+PROJECT_NAME: "UserAPI"
+CORE_DECISIONS: "FastAPI framework, Database design, Authentication strategy, Deployment approach"
+MEMORY_CATEGORIES: "Endpoint design, Database migrations, Testing strategies, Monitoring setup"
+```
+
+### Example 3: Mobile Application
+```yaml
+PROJECT_NAME: "TaskManager"
+CORE_DECISIONS: "React Native architecture, Platform-specific features, App store strategy"
+MEMORY_CATEGORIES: "UI patterns, Platform compatibility, User data sync, Push notifications"
+```
+
+**Technology Agnostic**: This memory management system preserves project knowledge regardless of programming language, framework, or project complexity while maintaining all entropy minimization and cross-rule integration benefits.
+

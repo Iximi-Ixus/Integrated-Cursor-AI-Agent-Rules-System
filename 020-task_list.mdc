@@ -1,0 +1,238 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 📝 020-task_list - [PROJECT_NAME] Active Task List - Development Roadmap
+
+## CUSTOMIZATION GUIDE 🔧
+
+**Essential Placeholders to Replace:**
+- `[PROJECT_NAME]` → Your project name
+- `[PROJECT_TYPE]` → Project type (Web App, API, Mobile App, etc.)
+- `[MAIN_FEATURES]` → Core features of your project
+- `[TECH_STACK]` → Your technology stack
+
+**How to Use This Template:**
+1. Replace the example tasks below with your actual project tasks
+2. Maintain the priority structure (🔴 CRITICAL, 🟡 HIGH, 🟢 MEDIUM, 🔵 LOW)
+3. Keep the Status field format (Not started, In progress, Ready for Review)
+4. Preserve the integration points with other cursor rules
+
+**Example Task Categories by Project Type:**
+- **Web Applications**: Authentication, UI components, API integration, testing, deployment
+- **Mobile Apps**: User interface, data persistence, push notifications, app store optimization
+- **APIs**: Endpoint development, authentication, documentation, rate limiting, monitoring
+- **Desktop Software**: Core functionality, user interface, file handling, system integration
+- **Data Science**: Data collection, processing pipelines, model training, visualization
+
+This document tracks **active development tasks** for [PROJECT_NAME], organized by immediate priority for efficient development workflow.
+
+**Archive Reference**: Completed tasks are maintained in @090-completed_tasks for historical reference.
+
+## Purpose
+
+This document provides **prioritized development roadmap and task management** for [PROJECT_NAME], organizing active work by strategic importance and maintaining clear development focus through CRITICAL/HIGH/MEDIUM/LOW priority levels.
+
+### Auto-Trigger Keywords
+This file is automatically loaded when agents detect: `task, implement, complete, status, feature, planning, work, progress, build, fix, add, create, update, develop, deploy, test, debug, priority, roadmap`
+
+### Cross-Rule Integration Points
+- **@010-cursor_general_rules**: Operates within centralized Rule Integration Framework as active task tracking location
+- **@030-cursor_task_rules**: Task management rules coordinate with this active task tracking file
+- **@090-completed_tasks**: Archival workflows maintain completed task history when tasks are marked complete
+- **@013-cursor_riper_rules**: RIPER methodology uses this task list for context loading and status updates
+- **@032-cursor_quality_rules**: Quality validation affects task completion readiness and archival timing
+
+### Task List Integration Actions
+- **Real-time Updates**: Update task status to "Ready for Review" when implementation work is finished
+- **Implementation Summaries**: Add detailed summaries explaining accomplishments and architectural decisions
+- **Related Task Analysis**: Identify and update status of related or dependent tasks
+- **Priority Management**: Adjust task priorities based on implementation discoveries and changing needs
+- **Cross-Reference Validation**: Maintain consistency between task status and actual implementation
+- **Archive Coordination**: Tasks marked complete by user are immediately archived by agents
+
+## Strategic Vision Summary
+
+**Primary Focus**: [Describe your project's main objective and value proposition]  
+**Core Strength**: [What makes your project unique or valuable]  
+**Target Audience**: [Who will use your project]  
+**Growth Strategy**: [How you plan to grow and improve the project]  
+
+---
+
+## 🔴 CRITICAL PRIORITY - Immediate Development Focus
+
+- **Title**: [EXAMPLE] Core authentication system
+  - **Description**: Implement user registration, login/logout functionality, password reset, and session management. Include input validation, secure password hashing, and protected route middleware.
+  - **Priority**: 🔴 CRITICAL (Foundation Feature)
+  - **Status**: Not started
+  - **Strategic Impact**: Essential foundation for all user-specific features
+  - **Dependencies**: Database setup, security framework
+
+- **Title**: [EXAMPLE] Main application workflow
+  - **Description**: Develop the primary user workflow and core functionality that delivers the main value proposition of [PROJECT_NAME]. This is the central feature users will interact with most.
+  - **Priority**: 🔴 CRITICAL (Core Value)
+  - **Status**: Not started
+  - **Strategic Impact**: Primary value delivery mechanism
+  - **Dependencies**: Authentication system
+
+---
+
+## 🟡 HIGH PRIORITY - Core Enhancement
+
+- **Title**: [EXAMPLE] User interface and experience
+  - **Description**: Create intuitive and responsive user interface with modern design patterns. Implement proper error handling, loading states, and user feedback mechanisms.
+  - **Priority**: 🟡 HIGH (User Experience)
+  - **Status**: Not started
+  - **Strategic Impact**: User adoption and satisfaction
+  - **Dependencies**: Core functionality complete
+
+- **Title**: [EXAMPLE] Data persistence and management
+  - **Description**: Implement robust data storage, retrieval, and management systems. Include data validation, backup strategies, and performance optimization.
+  - **Priority**: 🟡 HIGH (Data Reliability)
+  - **Status**: Not started
+  - **Strategic Impact**: System reliability and data integrity
+  - **Dependencies**: Database architecture decisions
+
+- **Title**: [EXAMPLE] API integration and external services
+  - **Description**: Integrate with required external APIs and services. Implement proper error handling, rate limiting, and failover mechanisms.
+  - **Priority**: 🟡 HIGH (Integration)
+  - **Status**: Not started
+  - **Strategic Impact**: Extended functionality and service capabilities
+  - **Dependencies**: External service selection and setup
+
+---
+
+## 🟢 MEDIUM PRIORITY - Advanced Features
+
+- **Title**: [EXAMPLE] Testing and quality assurance
+  - **Description**: Implement comprehensive testing suite including unit tests, integration tests, and end-to-end testing. Set up automated testing workflows and code quality monitoring.
+  - **Priority**: 🟢 MEDIUM (Quality Assurance)
+  - **Status**: Not started
+  - **Strategic Impact**: Code reliability and maintainability
+  - **Dependencies**: Core features stable
+
+- **Title**: [EXAMPLE] Performance optimization
+  - **Description**: Optimize application performance including database queries, API responses, and frontend rendering. Implement caching strategies and resource optimization.
+  - **Priority**: 🟢 MEDIUM (Performance)
+  - **Status**: Not started
+  - **Strategic Impact**: User experience and scalability
+  - **Dependencies**: Core functionality complete
+
+- **Title**: [EXAMPLE] Advanced user features
+  - **Description**: Add advanced functionality for power users including customization options, advanced filtering, bulk operations, and workflow automation.
+  - **Priority**: 🟢 MEDIUM (User Enhancement)
+  - **Status**: Not started
+  - **Strategic Impact**: User retention and advanced use cases
+  - **Dependencies**: Core features stable
+
+- **Title**: [EXAMPLE] Analytics and monitoring
+  - **Description**: Implement user analytics, system monitoring, error tracking, and performance metrics. Create dashboards for insights and system health.
+  - **Priority**: 🟢 MEDIUM (Insights)
+  - **Status**: Not started
+  - **Strategic Impact**: Data-driven improvements and system reliability
+  - **Dependencies**: Core system operational
+
+- **Title**: [EXAMPLE] Documentation and help system
+  - **Description**: Create comprehensive user documentation, API documentation, developer guides, and in-app help system.
+  - **Priority**: 🟢 MEDIUM (Documentation)
+  - **Status**: Not started
+  - **Strategic Impact**: User onboarding and developer experience
+  - **Dependencies**: Core features finalized
+
+---
+
+## 🔵 LOW PRIORITY - Future Development
+
+- **Title**: [EXAMPLE] Mobile application
+  - **Description**: Develop native or cross-platform mobile application with feature parity to web version. Implement mobile-specific features like push notifications.
+  - **Priority**: 🔵 LOW (Platform Expansion)
+  - **Status**: Not started
+  - **Strategic Impact**: Mobile user acquisition and engagement
+  - **Dependencies**: Core platform stable
+
+- **Title**: [EXAMPLE] Advanced integrations
+  - **Description**: Integrate with additional third-party services, implement webhooks, and create plugin/extension system for external developers.
+  - **Priority**: 🔵 LOW (Ecosystem)
+  - **Status**: Not started
+  - **Strategic Impact**: Ecosystem development and flexibility
+  - **Dependencies**: Core features stable
+
+- **Title**: [EXAMPLE] Multi-language support
+  - **Description**: Implement internationalization (i18n) and localization (l10n) for multiple languages and regions.
+  - **Priority**: 🔵 LOW (Market Expansion)
+  - **Status**: Not started
+  - **Strategic Impact**: International user acquisition
+  - **Dependencies**: Core features stable
+
+- **Title**: [EXAMPLE] Enterprise features
+  - **Description**: Add enterprise-level features like single sign-on (SSO), advanced user management, audit logging, and compliance features.
+  - **Priority**: 🔵 LOW (Enterprise Market)
+  - **Status**: Not started
+  - **Strategic Impact**: Enterprise market opportunity
+  - **Dependencies**: Core product established
+
+## 🎯 PROJECT TYPE EXAMPLES
+
+### Web Application Tasks
+```yaml
+Critical: User authentication, Core functionality, Database setup
+High: UI/UX design, API development, Data management
+Medium: Testing, Performance optimization, Advanced features
+Low: Mobile app, Integrations, Multi-language support
+```
+
+### API Service Tasks
+```yaml
+Critical: Core endpoints, Authentication, Data models
+High: Documentation, Rate limiting, Error handling
+Medium: Monitoring, Caching, Testing suite
+Low: SDK development, Partner integrations, Analytics
+```
+
+### Mobile Application Tasks
+```yaml
+Critical: Core UI, Data persistence, Navigation
+High: User onboarding, Push notifications, Offline support
+Medium: Performance tuning, App store optimization, Analytics
+Low: Widget support, Watch app, Advanced integrations
+```
+
+### Desktop Software Tasks
+```yaml
+Critical: Core functionality, File handling, User interface
+High: Settings management, Data import/export, Help system
+Medium: Performance optimization, Plugin system, Testing
+Low: Cross-platform support, Cloud sync, Advanced features
+```
+
+---
+
+## Task Summary
+
+**Total Active Tasks**: [Update count] focused tasks  
+**🔴 CRITICAL Priority**: [Count] tasks (foundation and core value)  
+**🟡 HIGH Priority**: [Count] tasks (user experience and reliability)  
+**🟢 MEDIUM Priority**: [Count] tasks (advanced features and quality)  
+**🔵 LOW Priority**: [Count] tasks (future development and expansion)  
+
+**Immediate Focus**: [Describe current priority]  
+**Next Phase**: [Describe next development phase]  
+
+**Archive Reference**: See @090-completed_tasks for completed tasks and implementation history
+
+## 📋 TASK TEMPLATE
+
+Use this template for adding new tasks:
+
+```markdown
+- **Title**: [Descriptive task title]
+  - **Description**: [Detailed description of what needs to be done, including specific requirements and acceptance criteria]
+  - **Priority**: 🔴/🟡/🟢/🔵 [PRIORITY LEVEL] ([Reason for priority])
+  - **Status**: [Not started/In progress/Ready for Review]
+  - **Strategic Impact**: [How this task contributes to project goals]
+  - **Dependencies**: [What must be complete before this task can begin]
+```
+
+**Remember**: Always update task status to "Ready for Review" when implementation is complete. Only users should mark tasks as "Completed" for archival. 

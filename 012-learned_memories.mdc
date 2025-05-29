@@ -1,0 +1,212 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 🧠 012-learned_memories - [PROJECT_NAME] Project Knowledge & Patterns
+
+## CUSTOMIZATION GUIDE 🔧
+
+**How to Use This Template:**
+1. Replace `[PROJECT_NAME]` with your actual project name
+2. Replace example sections below with your actual project decisions and patterns
+3. Use the template structure to organize your project knowledge
+4. Maintain the Core/Active/Historical organization for memory management
+
+**Template Structure:**
+- **Core Memory**: Permanent strategic decisions and technical standards
+- **Active Memory**: Current implementation patterns and progress  
+- **Historical Memory**: Completed phases and resolved issues
+
+**This file grows organically with your project while maintaining organization through automated entropy minimization.**
+
+---
+
+## 🔴 CORE MEMORY (Permanent Strategic & Technical Foundation)
+
+### Strategic Vision & Objectives
+* **Primary Focus**: [Describe your project's main objective and value proposition]
+* **Target Users**: [Who will use your project and why]  
+* **Core Value Proposition**: [What makes your project unique or valuable]
+* **Success Metrics**: [How you measure project success]
+* **Growth Strategy**: [How you plan to grow and improve the project]
+
+### Technical Stack & Architecture
+* **Primary Language**: [Main programming language and version requirements]
+* **Core Framework**: [Main framework(s) being used]
+* **Database**: [Database system and design approach]
+* **Architecture Pattern**: [Overall architectural approach - MVC, microservices, etc.]
+* **Development Environment**: [Platform and tool requirements]
+
+### Development Standards & Conventions
+* **Code Style**: [Formatting standards, linting rules, naming conventions]
+* **Testing Approach**: [Testing strategy, coverage requirements, testing tools]
+* **Documentation Standards**: [Documentation requirements and formats]
+* **Git Workflow**: [Branch strategy, commit conventions, review process]
+* **Quality Gates**: [Quality assurance requirements and automation]
+
+---
+
+## 🟡 ACTIVE MEMORY (Current Implementation & Progress)
+
+### Current Development Focus
+* **Active Sprint/Phase**: [Current development phase or iteration]
+* **Priority Features**: [Features currently in development]
+* **Technical Debt**: [Known technical debt being addressed]
+* **Performance Goals**: [Current performance targets and optimizations]
+
+### Recent Implementation Patterns
+* **Successful Approaches**: [Patterns that have worked well recently]
+* **Architecture Decisions**: [Recent architectural choices and rationale]
+* **Integration Strategies**: [How components/services integrate]
+* **Error Handling Patterns**: [Standard error handling approaches]
+
+### User Feedback & Requirements
+* **User Preferences**: [Learned user preferences and requirements]
+* **Feature Requests**: [Validated feature requests from users]
+* **Usage Patterns**: [How users actually use the system]
+* **Pain Points**: [Known user pain points being addressed]
+
+---
+
+## 🔵 HISTORICAL MEMORY (Completed Phases & Resolved Issues)
+
+### Completed Development Phases
+* **[Phase Name]**: [Brief summary of completed phase and key outcomes]
+* **[Phase Name]**: [Brief summary of completed phase and key outcomes]
+* **[Phase Name]**: [Brief summary of completed phase and key outcomes]
+
+### Resolved Technical Challenges
+* **[Challenge Type]**: [How specific technical challenges were resolved]
+* **[Performance Issue]**: [Performance problems and their solutions]
+* **[Integration Challenge]**: [Integration challenges and resolution approaches]
+
+### Deprecated Approaches
+* **[Old Approach]**: [Why previous approach was changed and lessons learned]
+* **[Legacy System]**: [Legacy systems replaced and migration lessons]
+* **[Tool/Framework]**: [Tools or frameworks replaced and why]
+
+---
+
+## 🎯 PROJECT TYPE EXAMPLES
+
+### Web Application Template
+```yaml
+Strategic Vision: "Create intuitive web application for [specific use case]"
+Technical Stack: "React/Vue/Angular + Node.js/Python/Java + PostgreSQL/MongoDB"
+Development Standards: "ESLint/Prettier, Jest/Cypress testing, Git flow"
+Current Focus: "User authentication, Core UI components, API integration"
+```
+
+### API Service Template
+```yaml
+Strategic Vision: "Provide reliable API for [specific domain/service]"
+Technical Stack: "FastAPI/Express/Spring Boot + Database + Caching layer"
+Development Standards: "OpenAPI documentation, automated testing, CI/CD"
+Current Focus: "Core endpoints, Authentication, Rate limiting, Documentation"
+```
+
+### Mobile Application Template
+```yaml
+Strategic Vision: "Mobile app for [specific user need/market]"
+Technical Stack: "React Native/Flutter/Native + Backend services"
+Development Standards: "Platform-specific guidelines, App store requirements"
+Current Focus: "Core user flows, Platform integration, Offline support"
+```
+
+### Desktop Software Template
+```yaml
+Strategic Vision: "Desktop application for [specific professional/personal use]"
+Technical Stack: "Electron/Tauri/Native frameworks + Local/Cloud storage"
+Development Standards: "Platform packaging, Update mechanisms, User data protection"
+Current Focus: "Core functionality, File handling, Settings management"
+```
+
+## 📝 EXAMPLE MEMORY ENTRIES
+
+### Example Strategic Decision
+```markdown
+* **Authentication Strategy**: JWT-based authentication with refresh tokens
+  - **Rationale**: Balances security with user experience
+  - **Implementation**: Auth service with token rotation
+  - **Impact**: Simplified client integration, improved security
+  - **Status**: Current [Updated: YYYY-MM-DD]
+```
+
+### Example Technical Pattern
+```markdown
+* **Error Handling Pattern**: Centralized error boundary with user-friendly messages
+  - **Approach**: Global error handler with categorized error types
+  - **Benefits**: Consistent user experience, easier debugging
+  - **Usage**: Applied to all API calls and user interactions
+  - **Status**: Current [Updated: YYYY-MM-DD]
+```
+
+### Example User Preference
+```markdown
+* **User Interface Preference**: Prefer minimal confirmation dialogs
+  - **Observation**: Users skip unnecessary confirmation steps
+  - **Implementation**: Reduced confirmations to destructive actions only
+  - **Result**: Improved user flow efficiency
+  - **Status**: Current [Updated: YYYY-MM-DD]
+```
+
+## 🔄 MEMORY MANAGEMENT INSTRUCTIONS
+
+### Adding New Information
+1. **Search First**: Check if related information already exists
+2. **Update vs. Add**: Prefer updating existing entries over creating new ones
+3. **Categorize**: Place in appropriate section (Core/Active/Historical)
+4. **Timestamp**: Add `[Updated: YYYY-MM-DD]` for significant updates
+
+### Memory Maintenance
+- **Consolidation**: Merge similar entries to reduce duplication
+- **Promotion**: Move frequently referenced items to Core Memory
+- **Archival**: Move completed/superseded items to Historical Memory
+- **Size Management**: Archive when file approaches 300+ lines
+
+### Cross-References
+- **Task Integration**: Reference relevant tasks from @020-task_list
+- **Rule Alignment**: Ensure consistency with @011-cursor_project_rules
+- **Quality Integration**: Document patterns that improve quality per @032-cursor_quality_rules
+
+---
+
+## 📋 MEMORY TEMPLATES
+
+### Strategic Decision Template
+```markdown
+* **[Decision Name]**: [Brief description of the decision]
+  - **Rationale**: [Why this decision was made]
+  - **Implementation**: [How it's implemented]
+  - **Impact**: [Effects on project/users]
+  - **Status**: [Current/Historical] [Updated: YYYY-MM-DD]
+```
+
+### Technical Pattern Template
+```markdown
+* **[Pattern Name]**: [Description of the technical pattern]
+  - **Approach**: [How the pattern is implemented]
+  - **Benefits**: [Why this pattern is beneficial]
+  - **Usage**: [Where/when this pattern is applied]
+  - **Status**: [Current/Historical] [Updated: YYYY-MM-DD]
+```
+
+### User Insight Template
+```markdown
+* **[Insight Name]**: [User behavior or preference observed]
+  - **Observation**: [What was observed/learned]
+  - **Implementation**: [How this insight was applied]
+  - **Result**: [Outcome of implementing this insight]
+  - **Status**: [Current/Historical] [Updated: YYYY-MM-DD]
+```
+
+---
+
+**Remember**: This file automatically grows with your project. The memory management system will help organize and consolidate information as it accumulates, maintaining the most important knowledge while archiving historical details.
+
+
+
+
+
+

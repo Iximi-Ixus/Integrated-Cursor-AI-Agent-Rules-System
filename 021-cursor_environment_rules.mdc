@@ -1,0 +1,284 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 🌍 021-cursor_environment_rules - Environment Rules for [PROJECT_NAME]
+
+## CUSTOMIZATION GUIDE 🔧
+
+**Essential Placeholders to Replace:**
+- `[PROJECT_NAME]` → Your project name
+- `[DEPLOYMENT_PLATFORM]` → Your deployment platform (AWS, Azure, Heroku, Netlify, etc.)
+- `[ENV_CONFIGS]` → Your environment configuration specifics
+- `[PLATFORM_COMMANDS]` → Platform-specific commands for your environment
+
+**Environment Framework:**
+This rule provides universal environment management that works with any deployment strategy. The DEV/TEST/STAGING/PROD pattern adapts to any project type and technology stack.
+
+**Common Environment Patterns:**
+- **Web Apps**: Local development → Testing server → Staging → Production
+- **APIs**: Development → Integration testing → Pre-production → Live API
+- **Mobile Apps**: Development → TestFlight/Internal testing → App Store review → Production release
+- **Desktop Software**: Development → Alpha testing → Beta testing → Release
+
+## CRITICAL AGENT RULES - READ FIRST
+
+⚠️ **MANDATORY ENVIRONMENT MANAGEMENT RULES** ⚠️
+
+1. **NO PRODUCTION CHANGES**: Agents MUST NOT modify .env.prod or production configurations without explicit user approval
+2. **ENVIRONMENT DETECTION PROTECTION**: Never override user's environment settings automatically
+3. **CONFIGURATION SAFETY**: Protect environment-specific settings from automatic modification
+4. **DEPLOYMENT PREVENTION**: No automatic deployment or environment switching without user verification
+5. **USER VERIFICATION REQUIRED**: All environment configuration changes require user approval
+
+### Safe Operations (No Approval Required)
+- Reading environment settings and configuration for guidance
+- Providing environment-specific advice and recommendations
+- Detecting current environment for context awareness
+- Recommending environment-specific development approaches
+- Monitoring environment status and health
+
+### Protected Operations (Require User Approval)
+- Modifying any .env files (.env, .env.dev, .env.test, .env.staging, .env.prod)
+- Changing environment configuration settings or values
+- Switching between environments automatically
+- Triggering deployment or environment transition processes
+- Modifying environment detection logic or configuration
+
+## Purpose
+
+This rule defines **environment-specific configurations and behaviors** for agents across DEV/TEST/STAGING/PROD environments, ensuring appropriate development practices and safety constraints for each deployment stage in [PROJECT_NAME].
+
+### Auto-Trigger Keywords
+This rule is automatically loaded when agents detect: `environment, deploy, deployment, staging, production, dev, test, config, configuration, branch, git, env, .env, build, release`
+
+### Cross-Rule Integration Points
+- **@010-cursor_general_rules**: Operates within centralized Rule Integration Framework for environment-aware coordination
+- **@022-cursor_git_rules**: Environment detection automatically maps to git branch strategy (dev/* → DEV, main → TEST, staging → STAGING, prod → PROD)
+- **@011-cursor_project_rules**: Technical standards apply across all environments with environment-specific configurations
+- **@032-cursor_quality_rules**: Quality gates adapt to environment (stricter in STAGING/PROD, more permissive in DEV)
+- **@030-cursor_task_rules**: Task management considerations vary by environment (rapid iteration in DEV, stability focus in PROD)
+- **@013-cursor_riper_rules**: Environment detection integrated in Research phase for context-aware implementation
+
+### Environment-Specific Integration Actions
+- **Before Operations**: Auto-detect current environment via git branch analysis and ENV_STAGE variable
+- **During Development**: Adapt behavior and suggestions based on detected environment (DEV=permissive, PROD=strict)
+- **Quality Gates**: Apply environment-appropriate validation (stricter in STAGING/PROD)
+- **Documentation**: Ensure environment-specific considerations are documented in all changes
+- **Cross-Rule Influence**: Environment detection automatically influences behavior across all cursor rules without manual configuration
+
+## Overview
+
+This document defines environment-specific rules and configurations for [PROJECT_NAME] across Dev, Test, Staging, and Production environments. These rules integrate seamlessly with existing cursor rules and maintain elegant workflow simplicity.
+
+## Environment Definitions and Characteristics
+
+### Development (DEV)
+**Purpose**: Local development and feature implementation  
+**Git Branches**: `dev/*` branches, local development  
+**Configuration**: Local development with hot reloading, full debug logging, local storage, immediate testing, minimal external dependencies
+
+### Test (TEST)
+**Purpose**: Feature testing and integration validation  
+**Git Branches**: `main` branch (stable feature testing)  
+**Configuration**: Testing environment with comprehensive logging, full feature testing, test data, integration testing with test APIs
+
+### Staging (STAGING)
+**Purpose**: Pre-production validation and final testing  
+**Git Branches**: `staging` branch (pre-production validation)  
+**Configuration**: Production-like configuration with staging services, performance and load testing, automated deployment testing, user acceptance testing
+
+### Production (PROD)
+**Purpose**: Live deployment with real users  
+**Git Branches**: `prod` branch (production deployment)  
+**Configuration**: Optimized production deployment, production logging and monitoring, live data and services, rate limiting and security hardening, analytics and monitoring
+
+## Environment Detection and Configuration
+
+### Automatic Environment Detection
+```bash
+# Environment detection priority (integrates with @022-cursor_git_rules):
+1. ENV_STAGE environment variable (DEV/TEST/STAGING/PROD)
+2. Git branch analysis:
+   - dev/* branches → DEV environment
+   - main branch → TEST environment
+   - staging branch → STAGING environment  
+   - prod branch → PROD environment
+3. Configuration file analysis (.env suffix detection)
+4. Default fallback to DEV
+```
+
+### Environment Configuration Files
+- **DEV**: `.env` or `.env.dev`
+- **TEST**: `.env.test` 
+- **STAGING**: `.env.staging`
+- **PROD**: `.env.prod`
+
+## 🎯 PROJECT TYPE ENVIRONMENT EXAMPLES
+
+### Web Application Environments
+```yaml
+DEV: Local development server, development database, debug mode enabled
+TEST: Test server deployment, test database, staging APIs
+STAGING: Production-like deployment, staging database, production APIs in test mode
+PROD: Production deployment, production database, live APIs and services
+```
+
+### API Service Environments
+```yaml
+DEV: Local API server, mock external services, full logging
+TEST: Deployed test API, test external service integrations, monitoring enabled
+STAGING: Production-like API, real external services in test mode, load testing
+PROD: Production API, live external services, full monitoring and rate limiting
+```
+
+### Mobile Application Environments
+```yaml
+DEV: Development build, development backend, debug features enabled
+TEST: Internal testing build, test backend services, crash reporting
+STAGING: Beta testing build, staging backend, user feedback collection
+PROD: App store release, production backend, analytics and monitoring
+```
+
+### Desktop Software Environments
+```yaml
+DEV: Development build, local configuration, debug mode
+TEST: Alpha testing build, test configuration, telemetry enabled
+STAGING: Beta testing build, staging configuration, user feedback
+PROD: Release build, production configuration, update system active
+```
+
+## Environment-Specific Configurations
+
+### Logging Configuration
+**DEV**: `DEBUG` level, console output, no file logging, full traceback  
+**TEST**: `DEBUG` level, console + file logging, full traceback, monitoring enabled  
+**STAGING**: `INFO` level, console + file logging, summary errors, performance monitoring  
+**PROD**: `WARNING` level, file logging only, minimal errors, security + performance logging  
+
+### Feature Flags and Configuration
+**DEV**: All features enabled, experimental features allowed, development keys, extended timeouts  
+**TEST**: Stable features enabled, experimental with warnings, test keys, standard timeouts  
+**STAGING**: Production feature set only, no experimental features, staging keys, rate limiting enabled  
+**PROD**: Production feature set only, production keys, full rate limiting and optimization, strict timeouts  
+
+## Integration with Cursor Rules
+
+**Centralized Integration Framework**: See @010-cursor_general_rules → Rule Integration Reference for comprehensive integration coordination between all cursor rules.
+
+### Cross-Rule Integration
+- **@022-cursor_git_rules**: Environment detection automatically maps to git branch strategy
+- **@011-cursor_project_rules**: Technical standards apply across all environments with environment-specific configurations
+- **@032-cursor_quality_rules**: Quality gates adapt to environment (stricter in STAGING/PROD, more permissive in DEV)
+- **@030-cursor_task_rules**: Task management considerations vary by environment (rapid iteration in DEV, stability focus in PROD)
+- **Environment Detection**: Works automatically across all cursor rules without manual configuration
+
+## Environment Transition Agent Guidance
+
+### Cross-Environment Development Support
+**Agent Detection**: Automatically detect environment changes based on git branch switches  
+**Behavior Adaptation**: Immediately adapt suggestions and requirements to new environment  
+**Transition Awareness**: Recognize when user is preparing for environment transitions  
+**Documentation Requirements**: Ensure all changes meet target environment standards  
+
+### Environment Preparation Actions
+
+**DEV → TEST Preparation**:
+- **Testing Verification**: Confirm basic functionality testing completed
+- **Error Handling Check**: Verify error handling implemented for all new features
+- **Documentation Update**: Ensure basic documentation updated before suggesting merge to main
+- **Configuration Review**: Validate environment-specific configurations
+- **Agent Behavior**: Switch from development-focused to quality-focused suggestions
+
+**TEST → STAGING Preparation**:
+- **Comprehensive Testing**: Verify full feature validation and performance testing completed
+- **Security Review**: Ensure security validation completed before staging recommendations
+- **Documentation Completeness**: Confirm comprehensive documentation ready for pre-production
+- **Load Testing**: Validate system performance under expected load
+- **Agent Behavior**: Switch from testing-focused to production-readiness focused
+
+**STAGING → PROD Preparation**:
+- **Final Validation**: Confirm all staging validation complete before production recommendations  
+- **Business Approval**: Verify business approval and compliance requirements met
+- **Backup Procedures**: Ensure backup and recovery procedures tested and documented
+- **Monitoring Setup**: Confirm production monitoring and incident response procedures ready
+- **Agent Behavior**: Switch to maximum stability and risk management focus
+
+## Agent Behavior by Environment
+
+### Platform-Specific Command Requirements
+- **Command Syntax**: Use appropriate command syntax for your platform (Windows, macOS, Linux)
+- **Package Managers**: Use correct package manager commands (npm, pip, cargo, etc.)
+- **File Paths**: Use platform-appropriate file path syntax
+- **Process Management**: Use platform-specific process management commands
+
+### Environment-Specific Agent Rules
+
+**DEV Environment**: Encourage experimentation and rapid iteration, allow breaking changes with warnings, prioritize feature development over optimization, provide detailed debugging assistance, basic functionality testing sufficient
+
+**TEST Environment**: Emphasize comprehensive testing and validation, require error handling for all new features, include performance tracking, maintain feature stability while allowing enhancements, update documentation systematically
+
+**STAGING Environment**: Focus on production-ready implementation and optimization, require comprehensive documentation and testing completion, emphasize security validation and performance requirements, validate deployment procedures and environment transitions, apply stricter quality validation
+
+**PROD Environment**: Prioritize system stability and reliability above all, require extensive testing and approval before any changes, focus on monitoring, maintenance, and error resolution, immediate issue resolution with rollback procedures available, conservative approach to all modifications
+
+## Agent Actions by Environment
+
+### Environment-Specific Development Actions
+**DEV**: Document feature development progress, run basic code quality checks, ensure basic functionality, support rapid development cycles with minimal overhead
+
+**TEST**: Verify test coverage and comprehensive validation, monitor and document performance benchmarks, validate cross-module integration points, ensure environment-specific configurations work
+
+**STAGING**: Validate system performance under expected load, run security scans and validate secure configurations, support user acceptance testing procedures, verify deployment procedures and environment setup
+
+**PROD**: Monitor system performance and user engagement, track error rates and system reliability metrics, support business analytics and monitoring, support immediate issue resolution and system recovery
+
+## Agent Implementation Guidelines
+
+### Environment Detection Best Practices
+- **Single Detection Call**: Call environment detection once at start of conversation, cache result
+- **Fallback Handling**: If detection fails, assume DEV environment and proceed with development-friendly approach
+- **Branch Awareness**: Always consider current git branch when making environment-specific suggestions
+- **Cross-Rule Integration**: Environment detection automatically influences behavior across all cursor rules
+
+### Error Handling and Fallbacks
+- **Detection Failure**: If environment detection fails, default to DEV environment behavior
+- **Missing Configuration**: If environment-specific config missing, use DEV defaults with user notification
+- **Branch Mismatch**: If git branch doesn't match expected pattern, fall back to ENV_STAGE variable or DEV
+- **Graceful Degradation**: Continue operation with appropriate warnings rather than failing
+
+### Performance Optimization
+- **Cache Results**: Store environment detection result for conversation duration
+- **Avoid Repeated Calls**: Don't re-detect environment unless user explicitly changes context
+- **Efficient Defaults**: Use smart defaults to minimize decision overhead
+- **Resource Management**: Environment detection should add minimal computational overhead
+
+## 🔧 CUSTOMIZATION EXAMPLES
+
+### Example 1: Node.js Web Application
+```yaml
+PROJECT_NAME: "MyWebApp"
+DEPLOYMENT_PLATFORM: "Heroku"
+ENV_CONFIGS: "DATABASE_URL, API_KEYS, SESSION_SECRET"
+PLATFORM_COMMANDS: "npm start, heroku logs --tail"
+```
+
+### Example 2: Python API Service
+```yaml
+PROJECT_NAME: "APIService"
+DEPLOYMENT_PLATFORM: "AWS Lambda"
+ENV_CONFIGS: "DATABASE_URL, AWS_ACCESS_KEY, SECRET_KEY"
+PLATFORM_COMMANDS: "python -m uvicorn, aws logs"
+```
+
+### Example 3: React Frontend
+```yaml
+PROJECT_NAME: "ReactApp"
+DEPLOYMENT_PLATFORM: "Netlify"
+ENV_CONFIGS: "REACT_APP_API_URL, REACT_APP_GA_ID"
+PLATFORM_COMMANDS: "npm run build, netlify deploy"
+```
+
+**Remember**: This environment management system adapts to any technology stack and deployment strategy while maintaining all safety features and cross-rule integration!
+

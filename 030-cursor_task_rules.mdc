@@ -1,0 +1,341 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 📝 030-cursor_task_rules - [PROJECT_NAME] Task Management Rules
+
+## CUSTOMIZATION GUIDE 🔧
+
+**Essential Placeholders to Replace:**
+- `[PROJECT_NAME]` → Your project name
+- `[PROJECT_MODULES]` → Your main project modules (e.g., `frontend, backend, database`, `auth, api, ui`)
+- `[TASK_CATEGORIES]` → Main task categories for your project type
+
+**Task Management Framework:**
+This rule provides a universal task management system that works with any project type. The priority levels (🔴 CRITICAL, 🟡 HIGH, 🟢 MEDIUM, 🔵 LOW) and status progression workflow are technology-agnostic and adapt to any development workflow.
+
+## CRITICAL AGENT RULES - READ FIRST
+
+⚠️ **MANDATORY TASK COMPLETION RULES** ⚠️
+
+1. **NO PREMATURE COMPLETION**: Agents MUST NOT mark tasks as "Completed" without explicit user verification
+2. **STATUS PROGRESSION**: Not started → In progress → Ready for Review → Completed (only user can mark "Completed")
+3. **IMMEDIATE ARCHIVAL**: When user marks task "Completed", IMMEDIATELY move to `completed-tasks.md` - NO EXCEPTIONS
+4. **USER VERIFICATION REQUIRED**: All implementation work requires user review before completion marking
+
+## Purpose
+
+This rule defines **task management workflows and archival procedures** for maintaining accurate development priorities, status tracking, and historical project knowledge across active and completed work in [PROJECT_NAME].
+
+### Auto-Trigger Keywords
+This rule is automatically loaded when agents detect: `task, implement, complete, status, feature, planning, work, progress, build, fix, add, create, update, develop, deploy, test, debug`
+
+### Cross-Rule Integration Points
+- **@010-cursor_general_rules**: Operates within centralized Rule Integration Framework for coordinated task management
+- **@020-task_list**: Active task management coordinates with task tracking and status updates
+- **@090-completed_tasks**: Archival workflows maintain completed task history and implementation knowledge
+- **@030-cursor_task_rules**: Task status progression and archival workflows fully integrated with other rules
+- **@013-cursor_riper_rules**: Task management integrated across all RIPER phases for systematic implementation
+- **@032-cursor_quality_rules**: Quality validation required before task completion and archival
+- **@022-cursor_git_rules**: Task completion integrates with commit messages and branch strategies
+
+### Task Management Integration Actions
+- **Real-time Status Updates**: Update task status to "Ready for Review" when implementation work is finished
+- **Implementation Summaries**: Add detailed summaries explaining accomplishments and architectural decisions
+- **Related Task Analysis**: Identify and update status of related or dependent tasks
+- **Priority Management**: Adjust task priorities based on implementation discoveries and changing needs
+- **Cross-Reference Validation**: Maintain consistency between task status and actual implementation
+- **Archival Coordination**: Immediate archival when user marks tasks completed, flexible workflow support
+
+## Task List Organization
+
+- **Active Task File Path**: The active task list is maintained in @020-task_list within the `.cursor/rules` directory.
+- **Completed Task Archive**: Completed tasks are archived in @090-completed_tasks within the `.cursor/rules` directory.
+
+**Load Triggers**: Code changes >3 files, new file creation, module modifications, status mentions, project planning, source directory work
+
+**Loading Process**: Read @020-task_list → Understand priorities → Update task status → Reference @090-completed_tasks for history
+
+**Context Benefits**: Current priorities, related task impact, alignment with objectives, accurate tracking
+
+## Task Organization Strategy
+
+### Active Task List (@020-task_list)
+- **Purpose**: Focus on immediate development workflow with clear priority hierarchy
+- **Content**: Only "Not started" and "In progress" tasks
+- **Organization**: By immediate priority (CRITICAL, HIGH, MEDIUM, LOW) rather than strategic phases
+- **Benefits**: Reduced cognitive load, clearer development focus, easier navigation
+
+### Completed Task Archive (@090-completed_tasks)
+- **Purpose**: Historical record of completed work with implementation summaries
+- **Content**: All "Completed" tasks organized by module and timeframe
+- **Organization**: By module and implementation chronology for reference
+- **Benefits**: Preserved implementation knowledge, reduced active list clutter
+
+## 🚦 Task Priority Levels
+
+### 🔴 CRITICAL PRIORITY
+**Criteria**: Core functionality, blocking issues, foundation features
+**Timeline**: Start immediately, complete 1-2 weeks
+**Dependencies**: None/minimal
+**Impact**: Project viability, user access, basic functionality
+
+### 🟡 HIGH PRIORITY  
+**Criteria**: Core user experience, essential features, important integrations
+**Timeline**: Start 2-4 weeks, complete 4-6 weeks
+**Dependencies**: May depend on critical tasks
+**Impact**: Significant user experience and platform improvements
+
+### 🟢 MEDIUM PRIORITY
+**Criteria**: Advanced features, optimizations, quality improvements
+**Timeline**: Start 1-2 months, flexible completion
+**Dependencies**: Often depends on high priority stability
+**Impact**: Enhanced functionality and user satisfaction
+
+### 🔵 LOW PRIORITY
+**Criteria**: Future expansion, nice-to-have features, long-term enhancements
+**Timeline**: Start when core stable, flexible timeline
+**Dependencies**: Requires stable core platform and features
+**Impact**: Platform expansion and advanced capabilities
+
+## Task Format Requirements
+
+### Active Tasks
+- **Required Components**: Title, Description, Priority (CRITICAL/HIGH/MEDIUM/LOW), Status (Not started/In progress), Dependencies
+- **Optional Components**: Strategic Impact, Timeline
+
+### Completed Tasks (Archive)
+- **Required Components**: Title, Description, Priority, Status (Completed), Summary (2-4 sentences minimum)
+- **Archive Organization**: Group by module and implementation timeframe
+
+## Task Status Management
+
+### New Tasks
+- **Status**: Set as "Not started" when adding to active list
+- **Placement**: Add to appropriate priority section in active list
+- **Dependencies**: Clearly identify any prerequisite tasks or conditions
+
+### Active Tasks
+- **Status**: Update to "In progress" when work begins
+- **Progress**: Add summary notes for significant progress milestones
+- **Blocking Issues**: Document any blockers or dependency issues
+- **Ready for Review**: When implementation work is finished, update status to "Ready for Review" with comprehensive summary - DO NOT mark as "Completed" without user verification
+
+### User Verification Requirements
+- **Critical Rule**: Tasks MUST NOT be marked as "Completed" by agents without explicit user verification
+- **Verification Process**: User must review and confirm that the implementation meets requirements before completion
+- **Status Progression**: Not started → In progress → Ready for Review → Completed (only after user approval)
+- **Agent Limitation**: Agents can only mark tasks as "Ready for Review" - user marks as "Completed"
+
+### Completed Tasks (Flexible Archival Workflow)
+
+**Agent-Assisted Completion** (When user requests in conversation):
+1. User tells agent "mark task X as completed" 
+2. Agent immediately performs both status update AND archival in same action
+3. Agent adds comprehensive summary and moves to `completed-tasks.md`
+4. Agent updates any related active tasks that were impacted
+
+**Direct Editing Workflow** (When user edits @020-task_list directly):
+1. User marks task as "Completed" and adds summary
+2. Task remains in active list until next agent conversation
+3. Agent detects completed tasks when conversation starts
+4. Agent offers: "I noticed task X is marked completed. Should I archive it now?"
+
+**Summary Requirements**: Include specific features implemented, architectural changes, and impact
+**Archival Timing**: Immediate when agent-assisted, or upon next conversation when directly edited
+
+## 🔄 Task Completion Workflows
+
+### 🤖 Method 1: Agent-Assisted (Recommended)
+**User**: "mark task completed" → **Agent**: Updates & archives immediately
+
+### ✏️ Method 2: Direct Editing  
+**User**: Edits file directly → **Agent**: Detects & offers archival
+
+### 🎯 Method 3: Manual
+**User**: Handles archival manually → **Agent**: Respects user control
+
+## Task Archival System
+
+### When to Archive
+- **Agent-Assisted**: Immediate when user requests completion
+- **Direct Edit Detection**: When agent detects completed tasks during conversation
+- **Manual Process**: User archives themselves anytime
+- **Batch Process**: Weekly review for missed tasks
+
+### Archive Organization and Maintenance
+- **Primary**: By module, **Secondary**: By timeframe, **Cross-Reference**: Related active tasks
+- **Updates**: Update organization as project evolves
+- **Quality**: Ensure comprehensive implementation summaries  
+- **Value**: Preserve architectural decisions for future reference
+
+## Chat Interaction Integration
+
+### Automatic Task Updates
+- **Real-time Status Updates**: Update task status to "Ready for Review" when implementation work is finished - NEVER mark as "Completed" without user verification
+- **Implementation Summaries**: Add detailed summaries explaining accomplishments and architectural decisions when marking "Ready for Review"
+- **Related Task Analysis**: Identify and update status of related or dependent tasks
+- **Documentation Cross-Check**: Verify task completion aligns with actual implementation
+- **User Notification**: Clearly inform user when tasks are ready for their review and approval
+
+### Discovery of Existing Implementation
+- **Status Correction**: Update status from "Not started" to "Ready for Review" (NOT "Completed") when discovering existing implementation
+- **Implementation Analysis**: Add comprehensive summary based on code analysis
+- **User Verification Required**: Even for discovered implementations, user must verify and mark as "Completed"
+- **Feature Documentation**: Ensure user-facing documentation reflects implemented features
+- **No Automatic Completion**: Agents CANNOT automatically mark discovered implementations as "Completed"
+
+### Task List Maintenance
+- **Regular Status Audits**: Review related tasks for accuracy when working in a module
+- **Implementation Reality**: Always prioritize what IS implemented over what was planned
+- **Technical Debt Resolution**: Update outdated task descriptions to reflect current approaches
+- **Priority Adjustments**: Adjust task priorities based on implementation discoveries and changing needs
+
+## Documentation Consistency Requirements
+
+### Task Completion Process
+1. Complete implementation → 2. Identify affected docs → 3. Update all docs systematically
+4. Cross-check 2+ documents → 5. Update task status → 6. Archive task → 7. Update related tasks
+
+### Validation Checklist
+- [ ] Dependencies match imports - [ ] API integration consistent - [ ] Project structure accurate
+- [ ] Environment variables consistent - [ ] Task status reflects reality - [ ] In-app docs updated
+- [ ] No conflicting information - [ ] Tasks properly archived with summaries
+
+## Best Practices Integration
+
+### Development Workflow
+- **Focus**: Use active task list for immediate development decisions
+- **Reference**: Use archive for implementation history and architectural context
+- **Planning**: Regularly review and adjust task priorities based on progress
+- **Dependencies**: Clearly track and communicate task dependencies
+
+### Quality Assurance
+- **Tests**: Each completed task should reference test coverage or testing approach
+- **Documentation**: Update related documentation as part of task completion (not optional)
+- **Standards**: Follow project coding standards defined in @011-cursor_project_rules
+- **Consistency**: Maintain documentation accuracy with same rigor as code functionality
+
+## AI Agent Guidelines
+
+### Active Task Management
+- **Priority Focus**: Emphasize CRITICAL and HIGH priority tasks in recommendations
+- **Dependency Awareness**: Consider task dependencies when suggesting implementation order
+- **Status Updates**: Update task statuses based on user instructions AND implementation discoveries
+- **Progress Tracking**: Provide regular updates on task completion progress
+
+### Archive Management
+- **Completion Detection**: Check for completed tasks in active list when starting conversations
+- **Archival Assistance**: Offer to archive completed tasks when detected: "Should I archive task X?"
+- **Agent-Requested Completion**: When user says "mark task X as completed", perform archival immediately
+- **Summary Quality**: Ensure comprehensive summaries that capture implementation decisions
+- **Cross-References**: Maintain logical connections between active and archived tasks
+- **Historical Context**: Use archive to inform current development decisions
+
+### User Communication and Suggestions
+- **Clear Priorities**: Present task priorities clearly with rationale
+- **Progress Visibility**: Show progress through priority levels and completion metrics
+- **Dependency Clarity**: Explain task dependencies and their impact on timeline
+- **Archive Value**: Reference archived tasks when relevant to current work
+- **Priority-Based**: Suggest tasks based on current priority framework
+- **Dependency-Aware**: Recommend task sequences that respect dependencies
+- **Resource-Conscious**: Consider available resources when suggesting task priorities
+- **Strategic Alignment**: Ensure task suggestions align with overall project strategy
+
+## 🎯 PROJECT TYPE TASK EXAMPLES
+
+### Web Application Tasks
+```yaml
+Critical: User authentication, Core functionality, Database setup
+High: UI/UX implementation, API development, Data management
+Medium: Testing suite, Performance optimization, Advanced features
+Low: Mobile responsive, Third-party integrations, Analytics
+```
+
+### API Service Tasks
+```yaml
+Critical: Core endpoints, Authentication, Data models
+High: Documentation, Rate limiting, Error handling
+Medium: Monitoring, Caching, Testing automation
+Low: SDK development, Partner integrations, Analytics dashboard
+```
+
+### Mobile Application Tasks
+```yaml
+Critical: Core UI, Data persistence, Navigation
+High: User onboarding, Push notifications, Offline support
+Medium: Performance tuning, App store optimization, Analytics
+Low: Widget support, Watch app extension, Advanced integrations
+```
+
+### Desktop Software Tasks
+```yaml
+Critical: Core functionality, File handling, User interface
+High: Settings management, Data import/export, Help system
+Medium: Performance optimization, Plugin system, Automated testing
+Low: Cross-platform support, Cloud sync, Advanced customization
+```
+
+## Example Task Formats
+
+### Active Task Format
+```markdown
+- **Title**: [Task name with clear priority indication]
+  - **Description**: [Detailed explanation with technical requirements]
+  - **Priority**: [CRITICAL/HIGH/MEDIUM/LOW with rationale]
+  - **Status**: [Not started/In progress/Ready for Review]
+  - **Strategic Impact**: [Business/user impact explanation]
+  - **Dependencies**: [Clear prerequisite list or "None"]
+  - **Summary**: [Required when status is "Ready for Review" - comprehensive implementation explanation]
+```
+
+### Archived Task Format
+```markdown
+- **Title**: [Original task name]
+  - **Description**: [Original requirements]
+  - **Priority**: [Original priority level]
+  - **Status**: Completed
+  - **Summary**: [Comprehensive implementation explanation with technical details, architectural decisions, and impact - 2-4 sentences minimum]
+```
+
+## Quality Assurance for Task Management
+
+### Regular Audits
+- **Weekly Review**: Check active task priorities and dependencies
+- **Monthly Archive**: Ensure all completed tasks are properly archived
+- **Quarterly Strategy**: Review task organization against project strategy
+- **Implementation Reality**: Verify task descriptions match actual implementation
+
+### Metrics and Tracking
+- **Completion Rate**: Track tasks completed per priority level
+- **Dependency Blocking**: Monitor tasks blocked by dependencies
+- **Priority Distribution**: Ensure balanced priority distribution
+- **Archive Growth**: Monitor archive growth as indicator of project progress
+
+## Advanced Scenarios
+
+### Large Task Decomposition
+Break down complex tasks → Map dependencies → Create milestones → Ensure progress visibility
+
+### Priority Conflicts  
+Handle resource constraints → Resolve dependency conflicts → Adapt to strategic shifts → Manage emergency tasks
+
+### Cross-Module Coordination
+Manage shared dependencies → Plan integration points → Coordinate resources → Align timelines
+
+### Evolution
+Update formats → Reorganize archive → Recalibrate priorities → Improve processes
+
+## Integration with Cursor Rules
+
+**Centralized Integration Framework**: See @010-cursor_general_rules → Rule Integration Reference for comprehensive integration coordination between all cursor rules.
+
+**Technology Agnostic**: This task management system works with any programming language, framework, or project type while maintaining all workflow benefits and cross-rule integration.
+
+
+
+
+
+
+
