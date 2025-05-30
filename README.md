@@ -94,8 +94,8 @@ mkdir -p .cursor/rules
 cp *.mdc .cursor/rules/
 
 # Option C: Clone repository and copy files
-git clone https://github.com/[YOUR-USERNAME]/cursor-ai-agent-rules
-cp cursor-ai-agent-rules/*.mdc .cursor/rules/
+git clone https://github.com/Iximi-Ixus/Integrated-Cursor-AI-Agent-Rules-System
+cp Integrated-Cursor-AI-Agent-Rules-System/*.mdc .cursor/rules/
 ```
 
 **✅ You're ready to go!** The system works with template content. Customize later as needed.
