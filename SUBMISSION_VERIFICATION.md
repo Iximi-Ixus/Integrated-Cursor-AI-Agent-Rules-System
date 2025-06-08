@@ -57,15 +57,15 @@ Based on the submission form requirements, this repository includes:
 
 ```
 8090 Project/
-├── calculate_reimbursement.py  # Main implementation
-├── run.sh                      # Bash execution script
-├── run.ps1                     # PowerShell execution script  
-├── private_results.txt         # Generated results (5,000 cases)
-├── LICENSE                     # MIT license file
-├── README.md                   # Project documentation
-├── development/                # Development work and backups
-├── investigation/              # Analysis and pattern discovery
-└── docs/                       # Documentation and logs
+├── calculate_reimbursement.py     # Main implementation
+├── run.sh                         # Bash execution script
+├── run.ps1                        # PowerShell execution script  
+├── private_results.txt            # Generated results (5,000 cases)
+├── public_cases.json              # Public test cases
+├── private_cases.json             # Private test cases
+├── LICENSE                        # MIT license file
+├── SUBMISSION_VERIFICATION.md     # Verification documentation
+└── .gitignore                     # Git configuration
 ```
 
 ---
@@ -83,7 +83,8 @@ Based on the submission form requirements, this repository includes:
 **Repository Status:**
 - **Branch**: `main` (clean, submission-ready)
 - **Tag**: `v1.0-submission-ready`
-- **Commit**: `34fffee` - Final submission commit
+- **Commit**: `aa39528` - Clean submission commit  
+- **Files**: 9 essential files only (all unnecessary files removed)
 - **Ready**: ✅ **READY FOR COMPETITION SUBMISSION**
 
 ---
